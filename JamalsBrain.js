@@ -113,7 +113,8 @@ function update() {
     
     }
     
-    //score
+    //score this keeps it uptodate
+    
     updateScore();
     context.fillStyle = "black";
     context.font = "16px sans-serif";
