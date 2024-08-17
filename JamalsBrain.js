@@ -50,20 +50,17 @@ window.onload = function() {
   context = board.getContext("2d");
 
 
-  //draw jamal
-// context.fillStle = "green";
-// context.fillRect(jamalX,jamalY,Jamalwidth,Jamalheight);
 
 //loadimage
 jamalImageRight = new Image();
-jamalImageRight.src = "Jamal (3).png";
+jamalImageRight.src = "jamal (3).png"; // this is the image for jamal
 jamal.img = jamalImageRight;
 jamalImageRight.onload = function(){
     context.drawImage(jamal.img,jamal.x,jamal.y,jamal.width, jamal.height);
 }
 
   platformImg = new Image();
-  platformImg.src = "Jamal_left.png";
+  platformImg.src = "brics.jpg";
   velocityY = intialVelocityY;
   placePlatforms();
   jamalImageLeft = new Image();
@@ -169,14 +166,7 @@ function placePlatforms() {
 
    platformArray.push(platform);
 
-   // platform = {
-     // img : platformImg,
-      //x : boardWidth/2,
-      //y : boardHeight - 150,
-      //width : platformWidth,
-      //height : platformHeight
-   //}
-    //platformArray.push(platform);
+  
   for (let i = 0 ; i < 6 ; i++){
       let randomx = Math.floor(Math.random() * boardWidth *3/4 );
       let platform = {
@@ -191,7 +181,7 @@ function placePlatforms() {
   }
 }
 function newplatform(){
-    let randomx = Math.floor(Math.random() * boardWidth *3/4 );
+    let randomx = Math.floor(Math.random() * boardWidth * 3/4);
     let platform = {
       img : platformImg,
       x : randomx,
@@ -206,18 +196,17 @@ function newplatform(){
 
 
 function detectCollision(a,b){
-  return  a.x < b.x + b.width &&
-          a.x + a.width > b.x &&
-          a.y < b.y + b.height &&
-          a.y + a.height > b.y;
+  return a.x < b.x + b.width &&   //a's top left corner doesn't reach b's top right corner
+  a.x + a.width > b.x &&   //a's top right corner passes b's top left corner
+  a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
+  a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
 }
 
 function updateScore(){
     let points = Math.floor(50*Math.random());
     if (velocityY < 0 ){
       MaxScore += points;
-      if (score < MaxScore)
-        {
+      if (score < MaxScore){
           score = MaxScore;
       }
     }
