@@ -4,6 +4,8 @@ let boardWidth = 360;
 let boardHeight = 700;
 let context;
 
+// sound 
+let background_music = new Audio("Mii Plaza.mp3");
 
 //JAMAL
 let Jamalheight = 46;
@@ -30,7 +32,7 @@ let gravity = 0.4;
  
 
 //platforms
-let platforms = [];
+let platformArray = [];
 let platformWidth = 60;
 let platformHeight = 18;
 let platformImg;
@@ -40,10 +42,13 @@ let MaxScore = 0;
 let gameover = false;
 
 window.onload = function() {
+  background_music.loop = true;
+  background_music.play();
   board = document.getElementById("board");
   board.height = boardHeight;
   board.width = boardWidth;
   context = board.getContext("2d");
+
 
   //draw jamal
 // context.fillStle = "green";
@@ -76,7 +81,7 @@ function update() {
       return;
     }
     context.clearRect(0,0, board.width, board.height);
-
+    
     //jamal
     jamal.x += velocityX;
     if (jamal.x > boardWidth){
@@ -114,7 +119,7 @@ function update() {
     }
     
     //score this keeps it uptodate
-    
+
     updateScore();
     context.fillStyle = "black";
     context.font = "16px sans-serif";
