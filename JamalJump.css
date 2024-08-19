@@ -1,7 +1,21 @@
 body{
     text-align: center;
+    
+    
 }
+
 #board{
     background-color: aquamarine;
   
+}
+audio{
+    text-align: center;
+}
+.black-box {
+    width: 300px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    background-color: rgb(121, 40, 40);
+    border-radius: 15px; /* Rounded corners */
+    margin-top: 20px; /* Space from the top */
+    
 }

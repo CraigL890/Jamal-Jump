@@ -27,8 +27,8 @@ let jamal = {
 // physics
 let velocityX = 0;
 let velocityY = 0;
-let intialVelocityY = -8 ;
-let gravity = 0.4;
+let intialVelocityY = -6;
+let gravity = 0.2;
  
 
 //platforms
@@ -129,11 +129,11 @@ function update() {
 }
 function moveJamal(e) {
     if (e.code == "ArrowRight" || e.code == "KeyD") { // move right
-        velocityX = 4;
+        velocityX = 3;
         jamal.img = jamalImageRight;
     }
     else if (e.code == "ArrowLeft" || e.code == "KeyA") { //move left
-        velocityX = -4;
+        velocityX = -3;
         jamal.img = jamalImageLeft;
     }
     else if ( e.code == "Space" && gameover){
@@ -159,7 +159,7 @@ function placePlatforms() {
   let platform = {
       img : platformImg,
       x : boardWidth/2,
-      y : boardHeight - 50,
+      y : boardHeight - 0,
       width : platformWidth,
       height : platformHeight
   }
@@ -172,7 +172,7 @@ function placePlatforms() {
       let platform = {
         img : platformImg,
         x : randomx,
-        y : boardHeight - 75*i - 150,
+        y : boardHeight - 95*i - 100,
         width : platformWidth,
         height : platformHeight
     }
@@ -196,10 +196,10 @@ function newplatform(){
 
 
 function detectCollision(a,b){
-  return a.x < b.x + b.width &&   //a's top left corner doesn't reach b's top right corner
-  a.x + a.width > b.x &&   //a's top right corner passes b's top left corner
-  a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
-  a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
+  return a.x < b.x + b.width &&    //a's top left corner doesn't reach b's top right corner
+  a.x + a.width > b.x &&           //a's top right corner passes b's top left corner
+  a.y < b.y + b.height &&          //a's top left corner doesn't reach b's bottom left corner
+  a.y + a.height > b.y;            //a's bottom left corner passes b's top left corner
 }
 
 function updateScore(){
