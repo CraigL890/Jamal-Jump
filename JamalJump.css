@@ -1,19 +1,21 @@
-body{
-    text-align: center;  
+body {
+    text-align: center;
+    background-color: rgb(236, 240, 200);           
+    z-index: 0;
 }
 
-#board{
+#board {
     background-color: aquamarine;
-  
-}
-audio{
     text-align: center;
-    
 }
+
+audio {
+    text-align: center;
+}
+
 .black-box {
     width: 600px;
     height: 100px;
-    
     border-radius: 50px;
     border-style: solid;
     margin-top: 20px;
@@ -24,8 +26,9 @@ audio{
     justify-content: center; /* Center content horizontally */
     align-items: center; /* Center content vertically */
     position: relative; /* Ensure child elements can be positioned */
+    z-index: 2; /* Ensure this is above the background changer */
+    background-color: white; /* Set a background color to ensure visibility */
 }
-
 
 #JamalJump {
     color: rgb(0, 0, 0);
@@ -34,8 +37,10 @@ audio{
     text-align: center;
     width: 300px;
     margin: 0; /* Remove any default margins */
+    z-index: 3; /* Ensure this is above the black box */
+    
 }
- 
+
 #socials-container {
     display: flex;
     height: 75px;
@@ -44,8 +49,11 @@ audio{
     right: 30px; /* Position it 10px from the right edge */
     top: 50%; /* Center vertically */
     transform: translateY(-50%); /* Adjust to perfectly center vertically */
-  }
-  #socials-container2 {
+    z-index: 3; /* Ensure this is above the black box */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+#socials-container2 {
     display: flex;
     height: 75px;
     width: 75px;
@@ -53,4 +61,20 @@ audio{
     left: 30px; /* Position it 10px from the right edge */
     top: 50%; /* Center vertically */
     transform: translateY(-50%); /* Adjust to perfectly center vertically */
-  }
+    z-index: 3; /* Ensure this is above the black box */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+#Background_Changer {
+    background-color: black;
+    height: 100px;
+    width: 600px;
+    position: absolute; /* Position it absolutely within the body */
+    top: 0; /* Adjust as needed */
+    left: 0; /* Adjust as needed */
+    z-index: 1; /* Ensure this is behind the black box */
+}
+
+
+
+
