@@ -126,6 +126,10 @@ function update() {
     if (gameover){
       context.fillText("Game over: press *space* to Restart", boardWidth/7 , boardHeight*7/8);
     }
+    if (score > 10000){
+      platformWidth = 40;
+      
+    }
 }
 function moveJamal(e) {
     if (e.code == "ArrowRight" || e.code == "KeyD") { // move right
@@ -148,6 +152,7 @@ function moveJamal(e) {
       velocityY = intialVelocityY;
       score = 0;
       MaxScore = 0;
+      platformWidth = 60;
       gameover = false; 
       placePlatforms();
     }
